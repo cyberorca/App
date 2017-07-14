@@ -3,7 +3,7 @@
     "description": "Wheel application skeleton.",
     "keywords": ["wheel", "application", "project", "lightweight"],
     "homepage": "http://www.phpwheelframework.com",
-    "type": "library",
+    "type": "project",
     "license": "MIT",
     "authors": [
         {
