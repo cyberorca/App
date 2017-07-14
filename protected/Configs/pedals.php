@@ -1,0 +1,3 @@
+<?php
+
+$pedals["helpers"] = array();

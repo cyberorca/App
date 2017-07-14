@@ -1,0 +1,23 @@
+{
+    "name": "wheel/skeleton",
+    "description": "Wheel application skeleton.",
+    "keywords": ["wheel", "application", "project", "lightweight"],
+    "homepage": "http://www.phpwheelframework.com",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Unis Badri",
+            "email": "uzumaki.unis@gmail.com",
+            "homepage": "http://www.unisbadri.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "protected/"
+        }
+    }
+}

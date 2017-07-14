@@ -1,0 +1,53 @@
+#!/usr/bin/env php
+<?php
+
+require_once ("constants.php");
+require_once (VENDOR_DIR . "autoload.php");
+
+if(!\Wheel\Base\CLI::isMe())
+{
+    exit();
+}
+
+$processors = array(
+    "app-asset" => "\Wheel\Assets\AssetCLI",
+    "app-db-migrate" => "\Wheel\Database\Migration\MigrationCLI",
+    "app-db-seed" => "\Wheel\Database\Seeding\SeederCLI",
+    "app-generate" => "\Wheel\Scaffolding\GeneratorCLI",
+    "app-modify" => "\Wheel\Scaffolding\ApplicationCLI"
+);
+
+$processorName = \Wheel\Base\CLI::getParameter(0);
+$processorMethod = \Wheel\Base\CLI::getParameter(1);
+
+if($processorName != null)
+{
+    if(isset($processors[$processorName]))
+    {
+        if(class_exists($processors[$processorName]))
+        {
+            $processor = new $processors[$processorName]();
+            
+            if(method_exists($processor, $processorMethod))
+            {
+                $processor->$processorMethod();
+            }
+            else
+            {
+                exit("Method '" . $processors[$processorName] . "::$processorMethod()' is not defined.");
+            }
+        }
+        else
+        {
+            exit("Class '" . $processors[$processorName] . "' that is defined as $processorName's processor is no where to be found.");
+        }
+    }
+    else
+    {
+        exit("Processor $processorName is not found.");
+    }
+}
+else
+{
+    exit("Specify a processor");
+}
