@@ -1,0 +1,2 @@
+# Skeleton
+PHPWheelframework application skeleton.
