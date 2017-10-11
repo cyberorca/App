@@ -1,5 +1,5 @@
 {
-    "name": "wheel/skeleton",
+    "name": "wheel/app",
     "description": "Wheel application skeleton.",
     "keywords": ["wheel", "application", "project", "lightweight"],
     "homepage": "http://www.phpwheelframework.com",
